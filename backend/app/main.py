@@ -1,6 +1,7 @@
 import sys
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from app.routers.example import router as example
 from app.routers.solution import router as backend
 
 app = FastAPI(title="fonoma-backend-test")
@@ -25,6 +26,7 @@ app.add_middleware(
 )
 
 app.include_router(backend.router)
+app.include_router(example.router)
 
 @app.middleware("http")
 async def request_logger(request: Request, call_next):
