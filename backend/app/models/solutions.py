@@ -8,6 +8,12 @@ class Order (BaseModel):
     price: float
     status: Literal['completed', 'pending', 'canceled']
 
+    @validator('price')
+    def price_non_negative(cls, v):
+        if v < 0:
+            raise ValueError('El precio no puede ser negativo')
+        return v
+
 class Orders (BaseModel):
     orders: List[Order]
 
