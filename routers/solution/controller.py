@@ -1,4 +1,4 @@
-from app.models.solutions import Orders, Criterion
+from models.solutions import Orders, Criterion
 from typing import List, Optional
 import json
 

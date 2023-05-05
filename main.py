@@ -1,8 +1,8 @@
 import sys
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers.example import router as example
-from app.routers.solution import router as backend
+from routers.example import router as example
+from routers.solution import router as backend
 
 app = FastAPI(title="fonoma-backend-test")
 

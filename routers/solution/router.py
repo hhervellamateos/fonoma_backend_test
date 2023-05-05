@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.routers.solution import controller
+from routers.solution import controller
 
 router = APIRouter(prefix='/fonoma/backend')
     

@@ -11,7 +11,7 @@ class Order (BaseModel):
     @validator('price')
     def price_non_negative(cls, v):
         if v < 0:
-            raise ValueError('El precio no puede ser negativo')
+            raise ValueError(f'El precio {v} no puede ser negativo')
         return v
 
 class Orders (BaseModel):
