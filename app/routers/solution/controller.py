@@ -16,7 +16,7 @@ def process_orders (order_list: OrderList = Body(...)) -> float:
         criterion = order_list.criterion
         for order in order_list.orders:
             if order.status == criterion or criterion == "all":
-                total += order.price
+                total += order.price * order.quantity
 
         return round(total, 2)
     
