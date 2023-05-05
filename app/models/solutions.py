@@ -14,8 +14,6 @@ class Order (BaseModel):
             raise ValueError(f'El precio {v} no puede ser negativo')
         return v
 
-class Orders (BaseModel):
+class OrderList (BaseModel):
     orders: List[Order]
-
-class Criterion (BaseModel):
     criterion: Literal['completed', 'pending', 'canceled', 'all']

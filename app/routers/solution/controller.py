@@ -1,6 +1,7 @@
-from models.solutions import Orders, Criterion
+from models.solutions import OrderList
 from typing import List, Optional
 import json
+from fastapi import Body
 
 def say_hello(name: Optional[str] = None) -> str:
     msg = "Hello"
@@ -9,11 +10,11 @@ def say_hello(name: Optional[str] = None) -> str:
 
     return f"{msg} !!!"
 
-def process_orders (orders: Orders, criterion: str) -> float:
-    print(criterion)
+def process_orders (order_list: OrderList = Body(...)) -> float:
     try:
         total = 0
-        for order in orders.orders:
+        criterion = order_list.criterion
+        for order in order_list.orders:
             if order.status == criterion or criterion == "all":
                 total += order.price
 
