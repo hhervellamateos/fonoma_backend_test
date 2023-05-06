@@ -3,6 +3,10 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from routers.example import router as example
 from routers.solution import router as backend
+from utils.logging import get_app_logger
+
+logger = get_app_logger(name="FONOMA_BACKEND")
+logger.info("Fonoma Backend Test")
 
 app = FastAPI(title="fonoma-backend-test")
 
